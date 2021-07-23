@@ -1,0 +1,41 @@
+<div class="col-md-6">    
+    <input placeholder="Nome: " 
+     class="form-control" 
+     [(ngModel)]="person.nome">
+
+    <input *ngIf="hideInputNumber" placeholder="Idade: "
+     class="form-control" 
+     [(ngModel)]="person.idade">
+
+     <input *ngIf="!hideInputNumber" 
+     (focus)="hideInputNumberEvent()" 
+     placeholder="Idade: "
+     class="form-control">
+
+    <input placeholder="E-mail" 
+    class="form-control" 
+    [(ngModel)]="person.email">
+
+    <button 
+    class="btn btn-success btn-sm mt-3"
+    (click)="save()">Save</button>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let person of lista">
+            <tr>
+                <td>{{person.nome}}</td>
+                <td>{{person.idade}}</td>
+                <td>{{person.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
